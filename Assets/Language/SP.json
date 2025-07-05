@@ -1,0 +1,9 @@
+﻿{
+  "play": "Jugar",
+  "quit": "Salir",
+  "health": "Salud",
+  "hunger": "Hambre",
+  "mood": "Ánimo",
+  "level": "Nivel",
+  "feed": "Alimentar"
+}

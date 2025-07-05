@@ -1,0 +1,9 @@
+{
+  "play": "Play",
+  "quit": "Quit",
+  "health": "Health",
+  "hunger": "Hunger",
+  "mood": "Mood",
+  "level": "Level",
+  "feed": "Feed"
+}
