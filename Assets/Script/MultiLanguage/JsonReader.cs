@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 [System.Serializable]
-public class LanguageData
+public class JsonReader
 {
     List<ItemText> items;
     public Dictionary<string, string> ToDictionary()

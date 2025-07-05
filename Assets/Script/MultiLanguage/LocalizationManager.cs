@@ -41,7 +41,7 @@ public class LocalizationManager : MonoBehaviour
 
         if (jsonFile != null)
         {
-            texts = JsonUtility.FromJson<LanguageData>(jsonFile.text).ToDictionary();
+            texts = JsonUtility.FromJson<JsonReader>(jsonFile.text).ToDictionary();
         }
         else
         {
