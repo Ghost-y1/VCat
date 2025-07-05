@@ -1,9 +1,32 @@
 {
-  "play": "Play",
-  "quit": "Quit",
-  "health": "Health",
-  "hunger": "Hunger",
-  "mood": "Mood",
-  "level": "Level",
-  "feed": "Feed"
+  "items": [
+    {
+      "key": "play",
+      "value": "Play"
+    },
+    {
+      "key": "quit",
+      "value": "Quit"
+    },
+    {
+      "key": "health",
+      "value": "Health"
+    },
+    {
+      "key": "hunger",
+      "value": "Hunger"
+    },
+    {
+      "key": "mood",
+      "value": "Mood"
+    },
+    {
+      "key": "level",
+      "value": "Level"
+    },
+    {
+      "key": "feed",
+      "value": "Feed"
+    }
+  ]
 }

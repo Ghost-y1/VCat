@@ -1,9 +1,32 @@
 ﻿{
-  "play": "Jugar",
-  "quit": "Salir",
-  "health": "Salud",
-  "hunger": "Hambre",
-  "mood": "Ánimo",
-  "level": "Nivel",
-  "feed": "Alimentar"
+  "items": [
+    {
+      "key": "play",
+      "value": "Jugar"
+    },
+    {
+      "key": "quit",
+      "value": "Salir"
+    },
+    {
+      "key": "health",
+      "value": "Vida"
+    },
+    {
+      "key": "hunger",
+      "value": "Hambre"
+    },
+    {
+      "key": "mood",
+      "value": "Humor"
+    },
+    {
+      "key": "level",
+      "value": "Nivel"
+    },
+    {
+      "key": "feed",
+      "value": "Alimentar"
+    }
+  ]
 }

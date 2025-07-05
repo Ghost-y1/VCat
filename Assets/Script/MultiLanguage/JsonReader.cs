@@ -3,13 +3,14 @@ using System.Collections.Generic;
 [System.Serializable]
 public class JsonReader
 {
-    List<ItemText> items;
+    public List<ItemText> items;
+
     public Dictionary<string, string> ToDictionary()
     {
         Dictionary<string, string> dict = new Dictionary<string, string>();
         foreach (var item in items)
         {
-            dict[item.KEY] = item.VALUE;
+            dict[item.key] = item.value;
         }
         return dict;
     }
@@ -18,6 +19,6 @@ public class JsonReader
 [System.Serializable]
 public class ItemText
 {
-    public string KEY { get; private set; }
-    public string VALUE { get; private set; }
+    public string key;
+    public string value;
 }

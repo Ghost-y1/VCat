@@ -1,9 +1,32 @@
 {
-  "play": "ÍæË£",
-  "quit": "ÍË³ö",
-  "health": "½¡¿µ",
-  "hunger": "¼¢¶ö",
-  "mood": "ĞÄÇé",
-  "level": "µÈ¼¶",
-  "feed": "Î¹Ê³"
+  "items": [
+    {
+      "key": "play",
+      "value": "ç©è€"
+    },
+    {
+      "key": "quit",
+      "value": "é€€å‡º"
+    },
+    {
+      "key": "health",
+      "value": "å¥åº·"
+    },
+    {
+      "key": "hunger",
+      "value": "é¥¥é¥¿"
+    },
+    {
+      "key": "mood",
+      "value": "å¿ƒæƒ…"
+    },
+    {
+      "key": "level",
+      "value": "ç­‰çº§"
+    },
+    {
+      "key": "feed",
+      "value": "å–‚é£Ÿ"
+    }
+  ]
 }

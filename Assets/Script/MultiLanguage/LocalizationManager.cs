@@ -14,23 +14,23 @@ public class LocalizationManager : MonoBehaviour
 
     private Dictionary<string, string> texts;
 
-    Language currentLanguage = Language.Spanish;
-
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            LoadLanguage(currentLanguage);
+
+            int savedLang = PlayerPrefs.GetInt("language", 0);
+            LoadLanguage((Language)savedLang);
+
         }
         else Destroy(gameObject);
     }
 
     void Start()
     {
-        int savedLang = PlayerPrefs.GetInt("language", 0);
-        LoadLanguage((Language)savedLang);
+ 
     }
 
     public void LoadLanguage(Language language)
@@ -63,6 +63,12 @@ public class LocalizationManager : MonoBehaviour
 
     public string GetText(string key)
     {
+        if (texts == null)
+        {
+            Debug.LogWarning("Localization texts not loaded yet.");
+            return $"[?{key}?]";
+        }
+
         if (texts.ContainsKey(key))
             return texts[key];
         return $"[?{key}?]";

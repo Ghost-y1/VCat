@@ -15,7 +15,6 @@ public class LanguageSelector : MonoBehaviour
             txt.UpdateText();
         }
 
-        // Optional: Save preference
         PlayerPrefs.SetInt("language", index);
     }
 }
