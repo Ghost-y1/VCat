@@ -39,12 +39,12 @@ public class WindowTransparent : MonoBehaviour
     [DllImport("user32.dll")]
     static extern int SetLayeredWindowAttributes(IntPtr hWnd, uint crKey, byte bAlpha, uint dwFlags);
 
-    const int GWL_EXSTYLE = -20;  // 修改窗口样式的索引
-    const uint WS_EX_LAYERED = 0x00080000;  // 分层窗口的扩展样式
-    const uint WS_EX_TRANSPARENT = 0x00000020;  // 透明窗口的扩展样式
-    static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);  // 窗口插入位置（始终置顶）
-    const uint LWA_COLORKEY = 0x00000001;  // 设置颜色键的标志（用于透明度）
-    private IntPtr hWnd;  // 活动窗口的句柄
+    const int GWL_EXSTYLE = -20;  // indice estilos extendidos de la ventana
+    const uint WS_EX_LAYERED = 0x00080000;  // estilo extendido para que la ventana sea en capas
+    const uint WS_EX_TRANSPARENT = 0x00000020;  // Estilo extendido para que la ventana sea clickeable 
+    static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);  // ventana siempre por encima de las demás 
+    const uint LWA_COLORKEY = 0x00000001;  // Bandera para usar un color clave como transparencia
+    private IntPtr hWnd;  // Manejador de la ventana activa
 
     private void Start()
     {

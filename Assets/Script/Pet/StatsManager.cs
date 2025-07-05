@@ -9,15 +9,58 @@ public class StatsManager : MonoBehaviour
     float _mood = 100;
     float _intimacy = 100;
 
+    float _level = 1;
+
+    /// <summary>
+    /// tiempo que has jugado
+    /// </summary>
+    float _playTime = 0f;
+
+    /// <summary>
+    /// tiempo total jugado
+    /// </summary>
+    float _totalPlayTime=0f;
+
+    /// <summary>
+    /// tiempo que necesitas para subir de nivel inicialmente
+    /// </summary>
+    float _baseTimePerLevel = 180f;      
+
+    /// <summary>
+    /// porcentaje de tiempo que necesitas que aumenta cada nivel 
+    /// </summary>
+    float _growthFactor = 1.04f;
+
+    /// <summary>
+    /// tiempo que necesitas para subir de nivel actualmente
+    /// </summary>
+    float _currentTimeToLevelUp;
     float _hungerDecaySpeed = 0.1f;
     float _moodDecaySpeed = 0.01f;
     float _healthDecaySpeed = 0.01f;
 
+    private void Start()
+    {
+         _currentTimeToLevelUp = _baseTimePerLevel * Mathf.Pow(_growthFactor, _level - 1);
+    }
     void Update()
     {
         //bajar stats 
         _hunger -= Time.deltaTime * _hungerDecaySpeed;
         _mood -= Time.deltaTime * _moodDecaySpeed * 0.5f;
+
+        //aumentar tiempo jugado
+        _playTime += Time.deltaTime;
+        _totalPlayTime += Time.deltaTime;
+
+        //subir de nivel
+        if (_playTime >= _currentTimeToLevelUp)
+        {
+            _level++;
+            _playTime = 0f;
+            _currentTimeToLevelUp = _baseTimePerLevel * Mathf.Pow(_growthFactor, _level - 1);
+            Debug.Log("level up to£º" + _level);
+        }
 
         if (_hunger < 30f || _mood < 30f)
         {
