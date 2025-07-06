@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.InteropServices;
@@ -42,10 +42,10 @@ public class WindowTransparent : MonoBehaviour
     const int GWL_EXSTYLE = -20;  // indice estilos extendidos de la ventana
     const uint WS_EX_LAYERED = 0x00080000;  // estilo extendido para que la ventana sea en capas
     const uint WS_EX_TRANSPARENT = 0x00000020;  // Estilo extendido para que la ventana sea clickeable 
-    static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);  // ventana siempre por encima de las dem��s 
+    static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);  // ventana siempre por encima de las demás 
     const uint LWA_COLORKEY = 0x00000001;  // Bandera para usar un color clave como transparencia
     private IntPtr hWnd;  // Manejador de la ventana activa
-
+    private const uint COLOR_KEY = 0x00FF00;
     private void Start()
     {
         // MessageBox(new IntPtr(0), "Hello world", "Hello Dialog", 0);
@@ -61,7 +61,7 @@ public class WindowTransparent : MonoBehaviour
         DwmExtendFrameIntoClientArea(hWnd, ref margins);
  
         // cambiar el estilo de ventana por capas y hacerlo transparente
-        SetWindowLong(hWnd, GWL_EXSTYLE, WS_EX_LAYERED | WS_EX_TRANSPARENT);
+        SetWindowLong(hWnd, GWL_EXSTYLE, WS_EX_LAYERED);
  
         // definir el colorkey de la ventana
         SetLayeredWindowAttributes(hWnd, 0x00FF00, 0, LWA_COLORKEY);
@@ -73,14 +73,23 @@ public class WindowTransparent : MonoBehaviour
         // run in bakcfround
         Application.runInBackground = true;
     }
-    public void SetWindowClickable(bool clickable)
+    public void DisableColorKey()
+    {
+#if !UNITY_EDITOR && UNITY_STANDALONE_WIN
+    uint style = WS_EX_LAYERED;
+    SetWindowLong(hWnd, GWL_EXSTYLE, style);
+    SetLayeredWindowAttributes(hWnd, 0, 255, 0);
+#endif
+    }
+    public void EnableColorKey()
     {
 #if !UNITY_EDITOR
-        uint style = WS_EX_LAYERED;
-        if (!clickable)
-            style |= WS_EX_TRANSPARENT;
+    uint style = WS_EX_LAYERED;
 
-        SetWindowLong(hWnd, GWL_EXSTYLE, style);
+    SetWindowLong(hWnd, GWL_EXSTYLE, style);
+
+    // 启用 ColorKey（让背景透明并穿透）
+    SetLayeredWindowAttributes(hWnd, COLOR_KEY, 0, LWA_COLORKEY);
 #endif
     }
 }

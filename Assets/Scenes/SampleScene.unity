@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 1455780078}
   - component: {fileID: 1455780077}
   - component: {fileID: 1455780076}
+  - component: {fileID: 1455780079}
   m_Layer: 0
   m_Name: bg menu
   m_TagString: Untagged
@@ -455,8 +456,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2400.0002, y: 1350.8463}
-  m_SizeDelta: {x: 800, y: 450.28}
+  m_AnchoredPosition: {x: 0.409, y: -1.3006}
+  m_SizeDelta: {x: 26.727, y: 15.603}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1455780076
 MonoBehaviour:
@@ -502,9 +503,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1455780079}
         m_TargetAssemblyTypeName: PetClickHandler, Assembly-CSharp
-        m_MethodName: CloseInteraction
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -527,7 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -552,6 +553,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455780074}
   m_CullTransparentMesh: 1
+--- !u!114 &1455780079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455780074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2198faabe30548446bbe0fc60cd2b882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handler: {fileID: 1589101127}
+  interactionPanel: {fileID: 2057127032}
+  raycaster: {fileID: 1541669262}
+  eventSystem: {fileID: 1786694325}
 --- !u!1 &1510717875
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +832,7 @@ GameObject:
   - component: {fileID: 1589101123}
   - component: {fileID: 1589101125}
   - component: {fileID: 1589101124}
-  - component: {fileID: 1589101126}
+  - component: {fileID: 1589101127}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -855,7 +872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6037736, g: 0.43574226, b: 0.43574226, a: 0}
+  m_Color: {r: 0.23584908, g: 0.18801177, b: 0.18801177, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -880,7 +897,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589101122}
   m_CullTransparentMesh: 1
---- !u!114 &1589101126
+--- !u!114 &1589101127
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -894,7 +911,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionPanel: {fileID: 2057127031}
   interactionBackground: {fileID: 1455780074}
-  windowTransparent: {fileID: 1687120135}
 --- !u!1 &1687120134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,7 +1157,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2057127034}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2057127034
 MonoBehaviour:
   m_ObjectHideFlags: 0
