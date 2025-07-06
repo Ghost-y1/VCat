@@ -189,7 +189,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 1, b: 0, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 1424753388}
   - component: {fileID: 1424753390}
   - component: {fileID: 1424753392}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Pet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -759,7 +759,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a9d5932fcf867499162654ff5a2b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionPanel: {fileID: 2057127031}
+  _petLayer:
+    serializedVersion: 2
+    m_Bits: 16
+  _petUI: {fileID: 2057127031}
 --- !u!1 &1687120134
 GameObject:
   m_ObjectHideFlags: 0

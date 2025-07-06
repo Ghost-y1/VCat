@@ -1,31 +1,34 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class PetClickHandler : MonoBehaviour, IPointerClickHandler
+public class PetInteractionManager : MonoBehaviour
 {
-    [SerializeField] 
-    GameObject _interactionPanel;
-    private bool _isActive = false;
+    [SerializeField] private LayerMask _petLayer;
+    [SerializeField] private GameObject _petUI;
+    private WindowTransparent _windowTransparent;
+    private Camera _mainCamera;
 
     void Start()
     {
-        _interactionPanel?.SetActive(false);
+        _windowTransparent = FindObjectOfType<WindowTransparent>();
+        _mainCamera = Camera.main;
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    void Update()
     {
-        if (!_isActive)
-        {
-            Debug.Log("open menu");
-            _isActive = true;
-            _interactionPanel?.SetActive(true);
-        } 
+        Vector2 mouseWorldPos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Collider2D hit = Physics2D.OverlapPoint(mouseWorldPos, _petLayer);
 
+        if (hit != null)
+        {
+            // 鼠标在宠物上  可交互
+            _windowTransparent?.SetClickthrough(false);
+            _petUI.SetActive(true);
+        }
         else
         {
-            Debug.Log("close menu");
-            _isActive = false;
-            _interactionPanel?.SetActive(false);
+            // 鼠标不在宠物上  穿透
+            _windowTransparent?.SetClickthrough(true);
+            _petUI.SetActive(false);
         }
     }
 }
