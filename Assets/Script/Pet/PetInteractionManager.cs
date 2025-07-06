@@ -3,7 +3,9 @@
 public class PetInteractionManager : MonoBehaviour
 {
     [SerializeField] private LayerMask _petLayer;
+    [SerializeField] private LayerMask _uiLayer;
     [SerializeField] private GameObject _petUI;
+
     private WindowTransparent _windowTransparent;
     private Camera _mainCamera;
 
@@ -11,22 +13,27 @@ public class PetInteractionManager : MonoBehaviour
     {
         _windowTransparent = FindObjectOfType<WindowTransparent>();
         _mainCamera = Camera.main;
+        _petUI.SetActive(false);
     }
 
     void Update()
     {
         Vector2 mouseWorldPos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        Collider2D hit = Physics2D.OverlapPoint(mouseWorldPos, _petLayer);
 
-        if (hit != null)
+        bool onPet = Physics2D.OverlapPoint(mouseWorldPos, _petLayer) != null;
+        bool onUI = Physics2D.OverlapPoint(mouseWorldPos, _uiLayer) != null;
+
+        if (onPet || onUI)
         {
-            // 鼠标在宠物上  可交互
             _windowTransparent?.SetClickthrough(false);
-            _petUI.SetActive(true);
+
+            if (!UIManager.Instance.STATSPANELACTIVE)
+            {
+                _petUI.SetActive(true);
+            }
         }
         else
         {
-            // 鼠标不在宠物上  穿透
             _windowTransparent?.SetClickthrough(true);
             _petUI.SetActive(false);
         }

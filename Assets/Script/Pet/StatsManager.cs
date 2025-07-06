@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class StatsManager : MonoBehaviour
 {
+    float _maxHealth = 100;
+    float _maxHunger = 100;
+    float _maxMood = 100;
+
     float _health = 100;
     float _hunger = 100;
     float _mood = 100;
-    float _intimacy = 100;
+    float _intimacy = 1;
 
     float _level = 1;
 
@@ -67,11 +71,11 @@ public class StatsManager : MonoBehaviour
             _health -= Time.deltaTime * _healthDecaySpeed;
         }
 
-        _hunger = Mathf.Clamp(_hunger, 0, 100);
-        _mood = Mathf.Clamp(_mood, 0, 100);
-        _health = Mathf.Clamp(_health, 0, 100);
+        _hunger = Mathf.Clamp(_hunger, 0, _maxHunger);
+        _mood = Mathf.Clamp(_mood, 0, _maxMood);
+        _health = Mathf.Clamp(_health, 0, _maxHealth);
     }
-    public float GetHealth() => _mood;
+    public float GetHealth() => _health;
     public float GetMood() => _mood;
     public float GetIntimacy() => _intimacy;
     public float GetHunger() => _hunger;
@@ -79,12 +83,21 @@ public class StatsManager : MonoBehaviour
     public void AddMood(float value)
     {
         _mood += value;
-        _mood = Mathf.Clamp(_mood, 0, 100);
+        _mood = Mathf.Clamp(_mood, 0, _maxMood);
+    }
+    public void AddHunger(float value)
+    {
+        _mood += value;
+        _mood = Mathf.Clamp(_mood, 0, _maxHunger);
+    }
+    public void AddHealth(float value)
+    {
+        _mood += value;
+        _mood = Mathf.Clamp(_mood, 0, _maxHealth);
     }
 
     public void AddIntimacy(float value)
     {
         _intimacy += value;
-        _intimacy = Mathf.Clamp(_intimacy, 0, 100);
     }
 }
