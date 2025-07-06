@@ -64,7 +64,7 @@ public class WindowTransparent : MonoBehaviour
         SetWindowLong(hWnd, GWL_EXSTYLE, WS_EX_LAYERED);
  
         // definir el colorkey de la ventana
-        SetLayeredWindowAttributes(hWnd, 0x00FF00, 0, LWA_COLORKEY);
+        SetLayeredWindowAttributes(hWnd, COLOR_KEY, 0, LWA_COLORKEY);
  
         // dejar siempre la ventana  arriba de todo
         SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0, 0);

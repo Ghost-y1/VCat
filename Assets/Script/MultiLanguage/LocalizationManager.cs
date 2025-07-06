@@ -12,7 +12,7 @@ public class LocalizationManager : MonoBehaviour
 {
     public static LocalizationManager Instance;
 
-    private Dictionary<string, string> texts;
+    private Dictionary<string, string> _texts;
 
     void Awake()
     {
@@ -36,7 +36,7 @@ public class LocalizationManager : MonoBehaviour
 
         if (jsonFile != null)
         {
-            texts = JsonUtility.FromJson<JsonReader>(jsonFile.text).ToDictionary();
+            _texts = JsonUtility.FromJson<JsonReader>(jsonFile.text).ToDictionary();
         }
         else
         {
@@ -58,14 +58,14 @@ public class LocalizationManager : MonoBehaviour
 
     public string GetText(string key)
     {
-        if (texts == null)
+        if (_texts == null)
         {
             Debug.LogWarning("Localization texts not loaded yet.");
             return $"[?{key}?]";
         }
 
-        if (texts.ContainsKey(key))
-            return texts[key];
+        if (_texts.ContainsKey(key))
+            return _texts[key];
         return $"[?{key}?]";
     }
 }

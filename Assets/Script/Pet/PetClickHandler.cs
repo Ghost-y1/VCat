@@ -3,37 +3,29 @@ using UnityEngine.EventSystems;
 
 public class PetClickHandler : MonoBehaviour, IPointerClickHandler
 {
-    public GameObject interactionPanel;
-    public GameObject interactionBackground;
-    private WindowTransparent windowTransparent;
-    private bool isActive = false;
+    [SerializeField] 
+    GameObject _interactionPanel;
+    private bool _isActive = false;
 
     void Start()
     {
-        windowTransparent = FindObjectOfType<WindowTransparent>();
-        interactionPanel?.SetActive(false);
-        interactionBackground?.SetActive(false);
+        _interactionPanel?.SetActive(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("open menu");
-
-        if (!isActive)
+        if (!_isActive)
         {
-            isActive = true;
-            interactionPanel?.SetActive(true);
-            interactionBackground?.SetActive(true);
+            Debug.Log("open menu");
+            _isActive = true;
+            _interactionPanel?.SetActive(true);
         } 
-    }
 
-    public void CloseInteraction()
-    {
-        Debug.Log("close menu");
-
-        isActive = false;
-
-        interactionPanel?.SetActive(false);
-        interactionBackground?.SetActive(false);
+        else
+        {
+            Debug.Log("close menu");
+            _isActive = false;
+            _interactionPanel?.SetActive(false);
+        }
     }
 }
