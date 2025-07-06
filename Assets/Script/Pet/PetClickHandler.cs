@@ -17,19 +17,19 @@ public class PetClickHandler : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("🐶 点击了宠物");
+        Debug.Log("open menu");
 
-        if (isActive) return; 
-
-        isActive = true;
-
-        interactionPanel?.SetActive(true);
-        interactionBackground?.SetActive(true);
+        if (!isActive)
+        {
+            isActive = true;
+            interactionPanel?.SetActive(true);
+            interactionBackground?.SetActive(true);
+        } 
     }
 
     public void CloseInteraction()
     {
-        Debug.Log("🚪 关闭交互");
+        Debug.Log("close menu");
 
         isActive = false;
 
