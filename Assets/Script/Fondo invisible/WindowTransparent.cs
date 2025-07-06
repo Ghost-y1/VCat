@@ -61,7 +61,7 @@ public class WindowTransparent : MonoBehaviour
         DwmExtendFrameIntoClientArea(hWnd, ref margins);
  
         // cambiar el estilo de ventana por capas y hacerlo transparente
-        SetWindowLong(hWnd, GWL_EXSTYLE, WS_EX_LAYERED);
+        SetWindowLong(hWnd, GWL_EXSTYLE, WS_EX_LAYERED | WS_EX_TRANSPARENT);
  
         // definir el colorkey de la ventana
         SetLayeredWindowAttributes(hWnd, 0x00FF00, 0, LWA_COLORKEY);
@@ -72,5 +72,15 @@ public class WindowTransparent : MonoBehaviour
 
         // run in bakcfround
         Application.runInBackground = true;
+    }
+    public void SetWindowClickable(bool clickable)
+    {
+#if !UNITY_EDITOR
+        uint style = WS_EX_LAYERED;
+        if (!clickable)
+            style |= WS_EX_TRANSPARENT;
+
+        SetWindowLong(hWnd, GWL_EXSTYLE, style);
+#endif
     }
 }

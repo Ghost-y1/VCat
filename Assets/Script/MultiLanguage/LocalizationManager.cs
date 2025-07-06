@@ -28,11 +28,6 @@ public class LocalizationManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    void Start()
-    {
- 
-    }
-
     public void LoadLanguage(Language language)
     {
         string fileName = GetFileName(language);
