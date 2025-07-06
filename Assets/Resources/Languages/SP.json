@@ -22,11 +22,15 @@
     },
     {
       "key": "level",
-      "value": "Nivel"
+      "value": "Nivel: "
     },
     {
       "key": "feed",
       "value": "Alimentar"
+    },
+    {
+      "key": "intimacy",
+      "value": "Intimidad"
     }
   ]
 }

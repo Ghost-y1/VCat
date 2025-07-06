@@ -21,7 +21,7 @@ public class LocalizationManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            int savedLang = PlayerPrefs.GetInt("language", 0);
+            int savedLang = PlayerPrefs.GetInt("language", 2);
             LoadLanguage((Language)savedLang);
 
         }

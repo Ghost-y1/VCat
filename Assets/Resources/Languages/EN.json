@@ -22,11 +22,15 @@
     },
     {
       "key": "level",
-      "value": "Level"
+      "value": "Level: "
     },
     {
       "key": "feed",
       "value": "Feed"
+    },
+    {
+      "key": "intimacy",
+      "value": "Intimacy"
     }
   ]
 }

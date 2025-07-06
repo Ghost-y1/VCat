@@ -12,14 +12,12 @@ public class PetDraggable : MonoBehaviour
 
     void OnMouseDown()
     {
-        // Calcula el offset entre la posici¨®n del mouse y el objeto
         Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         offset = transform.position - new Vector3(mouseWorldPos.x, mouseWorldPos.y, transform.position.z);
     }
 
     void OnMouseDrag()
     {
-        // Actualiza la posici¨®n del objeto mientras arrastras
         Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, transform.position.z) + offset;
     }

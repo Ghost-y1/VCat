@@ -22,11 +22,15 @@
     },
     {
       "key": "level",
-      "value": "等级"
+      "value": "等级: "
     },
     {
       "key": "feed",
       "value": "喂食"
+    },
+    {
+      "key": "intimacy",
+      "value": "亲密度"
     }
   ]
 }
