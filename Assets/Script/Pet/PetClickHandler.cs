@@ -25,8 +25,6 @@ public class PetClickHandler : MonoBehaviour, IPointerClickHandler
 
         interactionPanel?.SetActive(true);
         interactionBackground?.SetActive(true);
-
-        windowTransparent?.DisableColorKey();
     }
 
     public void CloseInteraction()
@@ -37,8 +35,5 @@ public class PetClickHandler : MonoBehaviour, IPointerClickHandler
 
         interactionPanel?.SetActive(false);
         interactionBackground?.SetActive(false);
-
-        windowTransparent?.EnableColorKey();
-
     }
 }
