@@ -15,6 +15,7 @@ public class PetAnimationManager : MonoBehaviour
             Instance = this;
             animator = GetComponent<Animator>();
         }
+
         else
         {
             Destroy(gameObject); 

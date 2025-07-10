@@ -44,7 +44,6 @@ public class LocalizationManager : MonoBehaviour
         }
     }
 
-
     private string GetFileName(Language language)
     {
         switch (language)
@@ -65,7 +64,10 @@ public class LocalizationManager : MonoBehaviour
         }
 
         if (_texts.ContainsKey(key))
+        {
             return _texts[key];
+        }
+
         return $"[?{key}?]";
     }
 }
